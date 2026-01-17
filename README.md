@@ -83,6 +83,7 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | [`fgp-google-drive`](skills/google-drive-daemon) | Google Drive files | 40-80x | macOS, Linux |
 | [`fgp-google-sheets`](skills/google-sheets-daemon) | Google Sheets spreadsheets | 35-70x | macOS, Linux |
 | [`fgp-google-docs`](skills/google-docs-daemon) | Google Docs documents | 30-60x | macOS, Linux |
+| [`fgp-ffmpeg`](skills/ffmpeg-daemon) | Video/audio processing via FFmpeg | 5-20x | macOS, Linux |
 
 ### macOS Native
 
