@@ -1,0 +1,82 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate SKILL.md files
+        run: |
+          echo "Validating SKILL.md files..."
+
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            skill_md="$skill_dir/SKILL.md"
+
+            if [ ! -f "$skill_md" ]; then
+              echo "❌ Missing SKILL.md in $skill_name"
+              exit 1
+            fi
+
+            # Check for required frontmatter fields
+            if ! grep -q "^name:" "$skill_md"; then
+              echo "❌ Missing 'name' in $skill_md frontmatter"
+              exit 1
+            fi
+
+            if ! grep -q "^description:" "$skill_md"; then
+              echo "❌ Missing 'description' in $skill_md frontmatter"
+              exit 1
+            fi
+
+            echo "✅ $skill_name"
+          done
+
+          echo ""
+          echo "All skills validated successfully!"
+
+      - name: Validate install scripts
+        run: |
+          echo "Validating install scripts..."
+
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            install_script="$skill_dir/scripts/install.sh"
+
+            if [ ! -f "$install_script" ]; then
+              echo "❌ Missing scripts/install.sh in $skill_name"
+              exit 1
+            fi
+
+            if [ ! -x "$install_script" ]; then
+              echo "⚠️ install.sh not executable in $skill_name (will be fixed)"
+            fi
+
+            # Check for shebang
+            if ! head -1 "$install_script" | grep -q "^#!/bin/bash"; then
+              echo "❌ Missing shebang in $skill_name/scripts/install.sh"
+              exit 1
+            fi
+
+            echo "✅ $skill_name"
+          done
+
+          echo ""
+          echo "All install scripts validated!"
+
+      - name: Count skills
+        run: |
+          count=$(ls -d skills/*/ | wc -l)
+          echo "Total skills: $count"

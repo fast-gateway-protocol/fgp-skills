@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., 1.0.0)'
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          echo "# FGP Skills v${{ steps.version.outputs.version }}" > RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+          echo "## Skills Included" >> RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            skill_md="$skill_dir/SKILL.md"
+
+            # Extract description from frontmatter
+            desc=$(grep "^description:" "$skill_md" | head -1 | sed 's/^description: //' | cut -d'.' -f1)
+            echo "- **$skill_name**: $desc" >> RELEASE_NOTES.md
+          done
+
+          echo "" >> RELEASE_NOTES.md
+          echo "## Installation" >> RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+          echo '```bash' >> RELEASE_NOTES.md
+          echo "npx add-skill fast-gateway-protocol/fgp-skills" >> RELEASE_NOTES.md
+          echo '```' >> RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+          echo "Or install specific skills:" >> RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+          echo '```bash' >> RELEASE_NOTES.md
+          echo "npx add-skill fast-gateway-protocol/fgp-skills --skill fgp-browser --skill fgp-gmail" >> RELEASE_NOTES.md
+          echo '```' >> RELEASE_NOTES.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: FGP Skills v${{ steps.version.outputs.version }}
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-homebrew:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger homebrew-fgp update
+        run: |
+          echo "TODO: Trigger homebrew formula updates"
+          echo "This would update SHA256 hashes in homebrew-fgp repo"

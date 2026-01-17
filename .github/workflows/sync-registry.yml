@@ -1,0 +1,79 @@
+name: Sync Registry
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - 'skills/*/SKILL.md'
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate registry data
+        run: |
+          echo "Generating registry.json..."
+
+          cat > registry.json << 'HEADER'
+          {
+            "name": "fgp-skills",
+            "version": "1.0.0",
+            "description": "FGP daemon skills for the agent-skills ecosystem",
+            "repository": "https://github.com/fast-gateway-protocol/fgp-skills",
+            "skills": [
+          HEADER
+
+          first=true
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            skill_md="$skill_dir/SKILL.md"
+
+            # Extract frontmatter
+            name=$(grep "^name:" "$skill_md" | head -1 | sed 's/^name: //')
+            desc=$(grep "^description:" "$skill_md" | head -1 | sed 's/^description: //')
+            version=$(grep "version:" "$skill_md" | head -1 | sed 's/.*version: "//' | sed 's/"//')
+
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo "," >> registry.json
+            fi
+
+            cat >> registry.json << EOF
+              {
+                "name": "$name",
+                "directory": "$skill_name",
+                "version": "${version:-1.0.0}",
+                "description": "$desc"
+              }
+          EOF
+          done
+
+          cat >> registry.json << 'FOOTER'
+            ]
+          }
+          FOOTER
+
+          echo "Generated registry.json with $(ls -d skills/*/ | wc -l) skills"
+          cat registry.json
+
+      - name: Upload registry artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry
+          path: registry.json
+
+      - name: Notify FGP Registry
+        if: github.event_name == 'push'
+        run: |
+          echo "TODO: POST to https://fgp.dev/api/registry/sync"
+          echo "This would update the central FGP registry"
