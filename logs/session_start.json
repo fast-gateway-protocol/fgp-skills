@@ -1,0 +1,9 @@
+[
+  {
+    "session_id": "f42bc462-2db0-4e67-a518-1fa50882b257",
+    "transcript_path": "/Users/wolfgangschoenberger/.claude/projects/-Users-wolfgangschoenberger-Projects-fgp/f42bc462-2db0-4e67-a518-1fa50882b257.jsonl",
+    "cwd": "/Users/wolfgangschoenberger/Projects/fgp/fgp-skills",
+    "hook_event_name": "SessionStart",
+    "source": "compact"
+  }
+]
