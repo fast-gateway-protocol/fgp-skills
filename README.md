@@ -15,16 +15,48 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | Browser navigate | 2-8ms | 27ms | **3-12x** |
 | Gmail list | 15-25ms | ~1000ms | **40-69x** |
 | GitHub issues | 8-15ms | ~600ms | **40-75x** |
+| Slack send | 15-30ms | ~800ms | **25-50x** |
+| Linear query | 10-20ms | ~900ms | **45-90x** |
 | iMessage read | 1-5ms | ~500ms | **100-480x** |
 
 ## Available Skills
 
+### Core Integrations
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-browser`](skills/browser-daemon) | Chrome automation via CDP | 3-12x | macOS, Linux |
+| [`fgp-gmail`](skills/gmail-daemon) | Gmail via Google API | 40-69x | macOS, Linux |
+| [`fgp-github`](skills/github-daemon) | GitHub via GraphQL | 40-75x | macOS, Linux |
+| [`fgp-calendar`](skills/calendar-daemon) | Google Calendar | 10-20x | macOS, Linux |
+
+### Productivity & Team
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-slack`](skills/slack-daemon) | Slack messaging | 25-50x | macOS, Linux |
+| [`fgp-discord`](skills/discord-daemon) | Discord bot ops | 60-120x | macOS, Linux |
+| [`fgp-notion`](skills/notion-daemon) | Notion pages & DBs | 40-80x | macOS, Linux |
+| [`fgp-linear`](skills/linear-daemon) | Linear issues | 45-90x | macOS, Linux |
+
+### Infrastructure
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-cloudflare`](skills/cloudflare-daemon) | DNS, Workers, KV | 50-100x | macOS, Linux |
+
+### macOS Native
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-imessage`](skills/imessage-daemon) | iMessage via SQLite | 100-480x | macOS only |
+| [`fgp-screen-time`](skills/screen-time-daemon) | Screen Time stats | 10-50x | macOS only |
+| [`fgp-contacts`](skills/contacts-daemon) | Contacts.framework | 30-60x | macOS only |
+
+### Developer Tools
+
 | Skill | Description | Platforms |
 |-------|-------------|-----------|
-| [`fgp-browser`](skills/browser-daemon) | Fast browser automation via Chrome DevTools Protocol | macOS, Linux |
-| [`fgp-gmail`](skills/gmail-daemon) | Fast Gmail operations via Google API | macOS, Linux |
-| [`fgp-github`](skills/github-daemon) | Fast GitHub operations via GraphQL | macOS, Linux |
-| [`fgp-imessage`](skills/imessage-daemon) | Fast iMessage access via SQLite | macOS only |
 | [`fgp-daemon-creator`](skills/fgp-daemon-creator) | Scaffold new FGP daemons | macOS, Linux |
 
 ## Installation
@@ -78,9 +110,24 @@ fgp gmail send --to "user@example.com" --subject "Hi" --body "Hello!"
 fgp github issues --state open
 fgp github pr create --title "Feature X"
 
+# Slack
+fgp slack send "#general" "Hello team!"
+fgp slack mentions
+
+# Linear
+fgp linear issues --state "In Progress"
+fgp linear issue create "Bug fix" --team "Engineering"
+
+# Calendar
+fgp calendar today
+fgp calendar create "Meeting" --when "tomorrow 2pm"
+
 # iMessage (macOS)
 fgp imessage recent
 fgp imessage send "Mom" "On my way!"
+
+# Screen Time (macOS)
+fgp screen-time today --breakdown
 ```
 
 ## Architecture
