@@ -54,6 +54,7 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | [`fgp-supabase`](skills/supabase-daemon) | Supabase (SQL, Auth, Storage) | 40-120x | macOS, Linux |
 | [`fgp-neon`](skills/neon-daemon) | Neon Postgres branches | 35-70x | macOS, Linux |
 | [`fgp-postgres`](skills/postgres-daemon) | Any PostgreSQL database | 30-80x | macOS, Linux |
+| [`fgp-sqlite`](skills/sqlite-daemon) | SQLite databases | 20-100x | macOS, Linux |
 
 ### Social & Communication
 
