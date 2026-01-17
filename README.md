@@ -86,6 +86,7 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | [`fgp-ffmpeg`](skills/ffmpeg-daemon) | Video/audio processing via FFmpeg | 5-20x | macOS, Linux |
 | [`fgp-imagemagick`](skills/imagemagick-daemon) | Image processing via ImageMagick | 5-25x | macOS, Linux |
 | [`fgp-pandoc`](skills/pandoc-daemon) | Document conversion via Pandoc | 10-30x | macOS, Linux |
+| [`fgp-ytdlp`](skills/ytdlp-daemon) | Video downloading via yt-dlp | 5-15x | macOS, Linux |
 
 ### macOS Native
 
