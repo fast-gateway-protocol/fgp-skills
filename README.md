@@ -76,6 +76,7 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | Skill | Description | Speedup | Platforms |
 |-------|-------------|---------|-----------|
 | [`fgp-openai`](skills/openai-daemon) | Embeddings, completions, DALL-E | 20-40x | macOS, Linux |
+| [`fgp-whisper`](skills/whisper-daemon) | Audio transcription via Whisper | 3-10x | macOS, Linux |
 
 ### Media & Storage
 
