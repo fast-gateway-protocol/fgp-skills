@@ -1,11 +1,12 @@
 ---
 name: fgp-openai
-description: Fast OpenAI operations via FGP daemon - 20-40x faster connection overhead. Use when user needs embeddings, completions, image generation, or OpenAI API calls. Triggers on "generate embedding", "openai completion", "dalle image", "whisper transcribe".
+description: Fast OpenAI API operations via FGP daemon - 25x faster than spawning API clients per request.
 license: MIT
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
   platforms: ["darwin", "linux"]
+  categories: ["devtools", "automation", "ai"]
 ---
 
 # FGP OpenAI Daemon
