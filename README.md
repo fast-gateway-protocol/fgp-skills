@@ -15,8 +15,8 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | Browser navigate | 2-8ms | 27ms | **3-12x** |
 | Gmail list | 15-25ms | ~1000ms | **40-69x** |
 | GitHub issues | 8-15ms | ~600ms | **40-75x** |
-| Slack send | 15-30ms | ~800ms | **25-50x** |
-| Linear query | 10-20ms | ~900ms | **45-90x** |
+| Supabase query | 5-15ms | ~600ms | **40-120x** |
+| Vercel deploy | 50-100ms | ~2000ms | **20-40x** |
 | iMessage read | 1-5ms | ~500ms | **100-480x** |
 
 ## Available Skills
@@ -39,11 +39,27 @@ MCP (Model Context Protocol) spawns a new process for every tool call. FGP uses 
 | [`fgp-notion`](skills/notion-daemon) | Notion pages & DBs | 40-80x | macOS, Linux |
 | [`fgp-linear`](skills/linear-daemon) | Linear issues | 45-90x | macOS, Linux |
 
-### Infrastructure
+### Deployment & Infrastructure
 
 | Skill | Description | Speedup | Platforms |
 |-------|-------------|---------|-----------|
+| [`fgp-vercel`](skills/vercel-daemon) | Vercel deployments | 30-60x | macOS, Linux |
+| [`fgp-fly`](skills/fly-daemon) | Fly.io apps & machines | 25-50x | macOS, Linux |
 | [`fgp-cloudflare`](skills/cloudflare-daemon) | DNS, Workers, KV | 50-100x | macOS, Linux |
+
+### Databases
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-supabase`](skills/supabase-daemon) | Supabase (SQL, Auth, Storage) | 40-120x | macOS, Linux |
+| [`fgp-neon`](skills/neon-daemon) | Neon Postgres branches | 35-70x | macOS, Linux |
+
+### Media & Storage
+
+| Skill | Description | Speedup | Platforms |
+|-------|-------------|---------|-----------|
+| [`fgp-youtube`](skills/youtube-daemon) | YouTube Data API | 40-80x | macOS, Linux |
+| [`fgp-google-drive`](skills/google-drive-daemon) | Google Drive files | 40-80x | macOS, Linux |
 
 ### macOS Native
 
