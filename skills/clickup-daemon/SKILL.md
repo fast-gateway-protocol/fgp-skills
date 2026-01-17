@@ -1,12 +1,11 @@
 ---
-name: fgp-clickup
-description: Fast ClickUp task and time tracking via FGP daemon.
+name: clickup-daemon
+description: Fast ClickUp task and time tracking via FGP daemon. Use when user needs to manage tasks, track time, update status, or work with ClickUp lists. Triggers on "clickup task", "create clickup", "clickup list", "time tracking", "clickup status".
 license: MIT
+compatibility: Requires fgp CLI and ClickUp API Token (CLICKUP_API_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["productivity"]
 ---
 
 # FGP ClickUp Daemon

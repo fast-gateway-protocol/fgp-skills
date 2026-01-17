@@ -1,11 +1,11 @@
 ---
-name: fgp-google-docs
-description: Fast Google Docs operations via FGP daemon - 30-60x faster than MCP. Use when user needs to read documents, create docs, insert text, or format content. Triggers on "read document", "create doc", "google docs", "insert text", "document content".
+name: google-docs-daemon
+description: Fast Google Docs operations via FGP daemon - 30-60x faster than MCP. Use when user needs to read documents, create docs, insert text, format content, or export to PDF. Triggers on "read document", "create doc", "google docs", "insert text", "document content", "export doc", "format document".
 license: MIT
+compatibility: Requires fgp CLI and Google OAuth credentials (run fgp docs auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Google Docs Daemon

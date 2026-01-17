@@ -1,12 +1,11 @@
 ---
-name: fgp-trello
-description: Fast Trello board and card operations via FGP daemon.
+name: trello-daemon
+description: Fast Trello board and card operations via FGP daemon. Use when user needs to manage boards, create/move cards, update lists, add comments, or search in Trello. Triggers on "trello board", "create trello card", "move card", "trello list", "trello search".
 license: MIT
+compatibility: Requires fgp CLI and Trello credentials (TRELLO_API_KEY and TRELLO_TOKEN env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["productivity"]
 ---
 
 # FGP Trello Daemon

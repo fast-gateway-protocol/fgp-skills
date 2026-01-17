@@ -1,12 +1,11 @@
 ---
-name: fgp-asana
-description: Fast Asana task and project management via FGP daemon.
+name: asana-daemon
+description: Fast Asana task and project management via FGP daemon. Use when user needs to manage tasks, list projects, search workspaces, or track work in Asana. Triggers on "asana task", "create asana", "asana project", "list tasks", "asana search".
 license: MIT
+compatibility: Requires fgp CLI and Asana Personal Access Token (ASANA_ACCESS_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["productivity"]
 ---
 
 # FGP Asana Daemon

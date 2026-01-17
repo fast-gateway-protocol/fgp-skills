@@ -1,12 +1,11 @@
 ---
-name: fgp-intercom
-description: Fast Intercom customer messaging operations via FGP daemon.
+name: intercom-daemon
+description: Fast Intercom customer messaging operations via FGP daemon. Use when user needs to create contacts, send messages, manage conversations, or search users in Intercom. Triggers on "intercom contact", "send intercom", "intercom message", "list conversations", "intercom user".
 license: MIT
+compatibility: Requires fgp CLI and Intercom Access Token (INTERCOM_ACCESS_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["messaging", "automation"]
 ---
 
 # FGP Intercom Daemon

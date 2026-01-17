@@ -1,11 +1,11 @@
 ---
-name: fgp-discord
-description: Fast Discord operations via FGP daemon - 60-120x faster than MCP. Use when user needs to send messages, manage servers, check channels, or interact with Discord bots. Triggers on "send discord message", "check discord", "post to discord", "list discord servers".
+name: discord-daemon
+description: Fast Discord operations via FGP daemon - 60-120x faster than MCP. Use when user needs to send messages, manage servers, check channels, read messages, or interact with Discord bots. Triggers on "send discord message", "check discord", "post to discord", "list discord servers", "discord channel", "discord DM".
 license: MIT
+compatibility: Requires fgp CLI and Discord Bot Token (DISCORD_BOT_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Discord Daemon

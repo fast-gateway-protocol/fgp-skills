@@ -1,12 +1,11 @@
 ---
-name: fgp-jira
-description: Fast Jira operations via FGP daemon - 25-50x faster than MCP. Issues, sprints, boards, and JQL queries.
+name: jira-daemon
+description: Fast Jira operations via FGP daemon - 25-50x faster than MCP. Use when user needs to manage issues, search with JQL, track sprints, or work with boards. Triggers on "jira issue", "jql search", "create jira", "jira sprint", "jira board", "jira ticket".
 license: MIT
+compatibility: Requires fgp CLI and Jira credentials (JIRA_URL, JIRA_EMAIL, JIRA_API_TOKEN env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "productivity"]
 ---
 
 # FGP Jira Daemon

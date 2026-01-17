@@ -1,11 +1,11 @@
 ---
-name: fgp-sqlite
+name: sqlite-daemon
 description: Fast SQLite operations via FGP daemon - 20-100x faster than spawning sqlite3 per query. Use when user needs to query SQLite databases, run SQL, explore schema, or manage local databases. Triggers on "query sqlite", "sqlite database", "run sql", "local database", "db query", ".db file".
 license: MIT
+compatibility: Requires fgp CLI (SQLite is bundled)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP SQLite Daemon

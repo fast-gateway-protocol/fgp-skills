@@ -1,12 +1,11 @@
 ---
-name: fgp-spotify
-description: Fast Spotify operations via FGP daemon - 20-50x faster than MCP. Control playback, search, and manage playlists.
+name: spotify-daemon
+description: Fast Spotify operations via FGP daemon - 20-50x faster than MCP. Use when user needs to control playback, search tracks, manage playlists, or check what's playing. Triggers on "spotify play", "what's playing", "spotify search", "add to playlist", "spotify pause", "now playing".
 license: MIT
+compatibility: Requires fgp CLI and Spotify OAuth (run fgp spotify auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["media", "automation"]
 ---
 
 # FGP Spotify Daemon

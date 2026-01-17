@@ -1,11 +1,11 @@
 ---
-name: fgp-ytdlp
+name: ytdlp-daemon
 description: Fast video/audio downloading via FGP daemon - 5-15x faster than spawning yt-dlp per operation. Use when user needs to download videos, extract audio, get metadata, or download playlists from YouTube and other sites. Triggers on "download video", "download youtube", "extract audio", "yt-dlp", "get video", "download playlist".
 license: MIT
+compatibility: Requires fgp CLI and yt-dlp installed (brew install yt-dlp); ffmpeg recommended for best quality
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP yt-dlp Daemon

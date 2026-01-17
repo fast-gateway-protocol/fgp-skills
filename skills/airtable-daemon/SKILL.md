@@ -1,12 +1,11 @@
 ---
-name: fgp-airtable
-description: Fast Airtable operations via FGP daemon - 20-40x faster than MCP. Bases, tables, records, and views.
+name: airtable-daemon
+description: Fast Airtable operations via FGP daemon - 20-40x faster than MCP. Use when user needs to manage bases, query tables, create/update records, or work with views. Triggers on "airtable query", "list records", "create record", "airtable base", "update airtable".
 license: MIT
+compatibility: Requires fgp CLI and Airtable API Key or Personal Access Token (AIRTABLE_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["database", "productivity"]
 ---
 
 # FGP Airtable Daemon

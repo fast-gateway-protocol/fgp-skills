@@ -1,12 +1,11 @@
 ---
-name: fgp-elasticsearch
-description: Fast Elasticsearch operations via FGP daemon - 20-40x faster than spawning curl per request. Persistent connections and bulk operations.
+name: elasticsearch-daemon
+description: Fast Elasticsearch operations via FGP daemon - 20-40x faster than spawning curl per request. Use when user needs to search documents, index data, run aggregations, or manage indices. Triggers on "elasticsearch search", "es query", "index document", "elastic aggregation", "search index".
 license: MIT
+compatibility: Requires fgp CLI and Elasticsearch connection (ELASTICSEARCH_URL env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["database", "research"]
 ---
 
 # FGP Elasticsearch Daemon

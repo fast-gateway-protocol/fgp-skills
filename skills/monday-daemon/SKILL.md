@@ -1,12 +1,11 @@
 ---
-name: fgp-monday
-description: Fast Monday.com board and item management via FGP daemon.
+name: monday-daemon
+description: Fast Monday.com board and item management via FGP daemon. Use when user needs to manage boards, create/update items, change columns, or track work in Monday.com. Triggers on "monday board", "create monday item", "monday task", "update monday", "monday column".
 license: MIT
+compatibility: Requires fgp CLI and Monday.com API Token (MONDAY_API_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["productivity"]
 ---
 
 # FGP Monday.com Daemon

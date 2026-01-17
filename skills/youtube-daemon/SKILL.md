@@ -1,11 +1,11 @@
 ---
-name: fgp-youtube
-description: Fast YouTube operations via FGP daemon - 40-80x faster than MCP. Use when user needs video info, search, channel data, or playlist management. Triggers on "youtube search", "get video", "channel info", "list playlists", "video stats".
+name: youtube-daemon
+description: Fast YouTube operations via FGP daemon - 40-80x faster than MCP. Use when user needs video info, search YouTube, get channel data, manage playlists, or fetch transcripts. Triggers on "youtube search", "get video", "channel info", "list playlists", "video stats", "youtube transcript", "trending videos".
 license: MIT
+compatibility: Requires fgp CLI and YouTube API Key (YOUTUBE_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP YouTube Daemon

@@ -1,11 +1,11 @@
 ---
-name: fgp-github
-description: Fast GitHub operations via FGP daemon - 75x faster than MCP. Use when user needs to work with issues, PRs, repos, or GitHub API. Triggers on "list issues", "create PR", "check CI status", "list repos", "review PR".
+name: github-daemon
+description: Fast GitHub operations via FGP daemon - 75x faster than MCP. Use when user needs to work with issues, pull requests, repositories, CI/CD status, or GitHub API. Triggers on "list issues", "create PR", "check CI status", "list repos", "review PR", "github issues", "merge pull request", "github search".
 license: MIT
+compatibility: Requires fgp CLI and GitHub token (GITHUB_TOKEN env var or gh CLI auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP GitHub Daemon

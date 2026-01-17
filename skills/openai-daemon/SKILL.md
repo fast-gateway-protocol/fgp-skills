@@ -1,12 +1,11 @@
 ---
-name: fgp-openai
-description: Fast OpenAI API operations (GPT, DALL-E, Whisper) via FGP daemon.
+name: openai-daemon
+description: Fast OpenAI API operations (GPT, DALL-E, Whisper, embeddings) via FGP daemon. Use when user needs chat completions, image generation, transcription, text-to-speech, or embeddings. Triggers on "openai chat", "generate image", "transcribe audio", "GPT completion", "DALL-E", "whisper transcribe", "openai embed".
 license: MIT
+compatibility: Requires fgp CLI and OpenAI API Key (OPENAI_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation", "ai"]
 ---
 
 # FGP OpenAI Daemon

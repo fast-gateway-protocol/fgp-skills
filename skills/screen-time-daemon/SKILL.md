@@ -1,11 +1,11 @@
 ---
-name: fgp-screen-time
-description: Fast Screen Time queries via FGP daemon (macOS only) - 50x faster than alternatives. Use when user needs app usage stats, screen time reports, or productivity insights. Triggers on "how much time on", "app usage", "screen time", "most used apps", "productivity report".
+name: screen-time-daemon
+description: Fast Screen Time queries via FGP daemon (macOS only) - 50x faster than alternatives. Use when user needs app usage stats, screen time reports, productivity insights, or daily usage breakdown. Triggers on "how much time on", "app usage", "screen time", "most used apps", "productivity report", "time spent on", "screen time today".
 license: MIT
+compatibility: Requires macOS, fgp CLI, and Full Disk Access permission for terminal
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin"]
 ---
 
 # FGP Screen Time Daemon

@@ -1,11 +1,11 @@
 ---
-name: fgp-notion
-description: Fast Notion operations via FGP daemon - 40-80x faster than MCP. Use when user needs to search Notion, create pages, update databases, or manage workspace. Triggers on "search notion", "create notion page", "update notion", "list notion databases".
+name: notion-daemon
+description: Fast Notion operations via FGP daemon - 40-80x faster than MCP. Use when user needs to search Notion, create pages, update databases, query tables, or manage workspace. Triggers on "search notion", "create notion page", "update notion", "list notion databases", "notion query", "add notion row".
 license: MIT
+compatibility: Requires fgp CLI and Notion Integration Token (NOTION_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Notion Daemon

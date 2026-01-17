@@ -1,11 +1,11 @@
 ---
-name: fgp-calendar
-description: Fast Google Calendar operations via FGP daemon - 10x faster than MCP. Use when user needs to check schedule, create events, find free time, or manage calendar. Triggers on "check my calendar", "schedule meeting", "when am I free", "create event", "what's on my schedule".
+name: calendar-daemon
+description: Fast Google Calendar operations via FGP daemon - 10x faster than MCP. Use when user needs to check schedule, create events, find free time, manage calendar, or view upcoming meetings. Triggers on "check my calendar", "schedule meeting", "when am I free", "create event", "what's on my schedule", "book meeting", "calendar today".
 license: MIT
+compatibility: Requires fgp CLI and Google OAuth credentials (run fgp calendar auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Calendar Daemon

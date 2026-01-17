@@ -1,11 +1,11 @@
 ---
-name: fgp-resend
-description: Fast Resend email operations via FGP daemon - 30-60x faster than MCP. Use when user needs to send emails, check delivery status, or manage email templates. Triggers on "send email", "email to", "check email status", "resend", "transactional email".
+name: resend-daemon
+description: Fast Resend email operations via FGP daemon - 30-60x faster than MCP. Use when user needs to send transactional emails, check delivery status, manage domains, or batch send emails. Triggers on "send email", "email to", "check email status", "resend", "transactional email", "email API", "batch email".
 license: MIT
+compatibility: Requires fgp CLI and Resend API Key (RESEND_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Resend Daemon

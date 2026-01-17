@@ -1,11 +1,11 @@
 ---
-name: fgp-twilio
-description: Fast Twilio operations via FGP daemon - 25-50x faster than MCP. Use when user needs to send SMS, make calls, check messages, or manage phone numbers. Triggers on "send sms", "text message", "twilio call", "check messages", "phone number".
+name: twilio-daemon
+description: Fast Twilio operations via FGP daemon - 25-50x faster than MCP. Use when user needs to send SMS, make calls, check messages, manage phone numbers, or handle 2FA verification. Triggers on "send sms", "text message", "twilio call", "check messages", "phone number", "send text", "twilio verify".
 license: MIT
+compatibility: Requires fgp CLI and Twilio credentials (TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Twilio Daemon

@@ -1,11 +1,11 @@
 ---
-name: fgp-vercel
-description: Fast Vercel operations via FGP daemon - 30-60x faster than MCP. Use when user needs to deploy, check deployments, manage domains, or view logs. Triggers on "deploy to vercel", "check deployment", "vercel logs", "add domain", "list projects".
+name: vercel-daemon
+description: Fast Vercel operations via FGP daemon - 30-60x faster than MCP. Use when user needs to deploy apps, check deployments, manage domains, view logs, or configure environment variables. Triggers on "deploy to vercel", "check deployment", "vercel logs", "add domain", "list projects", "vercel env", "promote deployment".
 license: MIT
+compatibility: Requires fgp CLI and Vercel Token (VERCEL_TOKEN env var or vercel CLI auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Vercel Daemon

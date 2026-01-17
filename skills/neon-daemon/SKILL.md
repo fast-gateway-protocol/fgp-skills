@@ -1,11 +1,11 @@
 ---
-name: fgp-neon
-description: Fast Neon Postgres operations via FGP daemon - 35-70x faster than MCP. Use when user needs database queries, branch management, or schema operations. Triggers on "neon query", "create branch", "run sql", "list databases", "neon project".
+name: neon-daemon
+description: Fast Neon Postgres operations via FGP daemon - 35-70x faster than MCP. Use when user needs database queries, branch management, schema operations, or migrations on Neon. Triggers on "neon query", "create branch", "run sql", "list databases", "neon project", "postgres query", "neon migration".
 license: MIT
+compatibility: Requires fgp CLI and Neon API Key (NEON_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Neon Daemon

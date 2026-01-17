@@ -1,11 +1,11 @@
 ---
-name: fgp-contacts
-description: Fast Contacts operations via FGP daemon (macOS only) - 30-60x faster than alternatives. Use when user needs to search contacts, get phone numbers, or manage address book. Triggers on "find contact", "get phone number", "search contacts", "who is", "contact info".
+name: contacts-daemon
+description: Fast Contacts operations via FGP daemon (macOS only) - 30-60x faster than alternatives. Use when user needs to search contacts, get phone numbers, find email addresses, or manage address book. Triggers on "find contact", "get phone number", "search contacts", "who is", "contact info", "lookup contact", "phone for".
 license: MIT
+compatibility: Requires macOS, fgp CLI, and Contacts access permission
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin"]
 ---
 
 # FGP Contacts Daemon

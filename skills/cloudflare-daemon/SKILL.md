@@ -1,11 +1,11 @@
 ---
-name: fgp-cloudflare
-description: Fast Cloudflare operations via FGP daemon - 50-100x faster than MCP. Use when user needs to manage DNS, Workers, KV, or Cloudflare settings. Triggers on "add DNS record", "deploy worker", "cloudflare settings", "purge cache", "list domains".
+name: cloudflare-daemon
+description: Fast Cloudflare operations via FGP daemon - 50-100x faster than MCP. Use when user needs to manage DNS records, deploy Workers, use KV storage, purge cache, or configure zones. Triggers on "add DNS record", "deploy worker", "cloudflare settings", "purge cache", "list domains", "DNS A record", "cloudflare KV".
 license: MIT
+compatibility: Requires fgp CLI and Cloudflare API Token (CLOUDFLARE_API_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Cloudflare Daemon

@@ -1,12 +1,11 @@
 ---
-name: fgp-replicate
-description: Fast Replicate model inference via FGP daemon.
+name: replicate-daemon
+description: Fast Replicate model inference via FGP daemon. Use when user needs to run ML models (image generation, LLMs, audio processing, video generation) on Replicate. Triggers on "replicate run", "run model replicate", "stable diffusion", "SDXL", "replicate llama", "whisper replicate".
 license: MIT
+compatibility: Requires fgp CLI and Replicate API Token (REPLICATE_API_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation", "ai"]
 ---
 
 # FGP Replicate Daemon

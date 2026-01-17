@@ -1,12 +1,11 @@
 ---
-name: fgp-mongodb
-description: Fast MongoDB operations via FGP daemon - 25-60x faster than spawning mongosh per query. Connection pooling and query caching.
+name: mongodb-daemon
+description: Fast MongoDB operations via FGP daemon - 25-60x faster than spawning mongosh per query. Use when user needs to query documents, insert data, run aggregations, or manage collections. Triggers on "mongodb query", "find documents", "insert document", "mongo aggregate", "mongodb collection".
 license: MIT
+compatibility: Requires fgp CLI and MongoDB connection string (MONGODB_URI env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["database", "devtools"]
 ---
 
 # FGP MongoDB Daemon

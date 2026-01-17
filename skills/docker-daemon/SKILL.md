@@ -1,12 +1,11 @@
 ---
-name: fgp-docker
-description: Fast Docker operations via FGP daemon - 10-30x faster than spawning docker CLI per command. Direct Docker API access.
+name: docker-daemon
+description: Fast Docker operations via FGP daemon - 10-30x faster than spawning docker CLI per command. Use when user needs to manage containers, images, logs, or execute commands. Triggers on "docker containers", "container logs", "docker exec", "list images", "docker stats".
 license: MIT
+compatibility: Requires fgp CLI and Docker daemon running (uses Docker socket or DOCKER_HOST)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "cloud"]
 ---
 
 # FGP Docker Daemon

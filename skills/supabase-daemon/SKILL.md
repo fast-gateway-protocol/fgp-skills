@@ -1,11 +1,11 @@
 ---
-name: fgp-supabase
-description: Fast Supabase operations via FGP daemon - 40-120x faster than MCP. Use when user needs database queries, auth operations, storage, or edge functions. Triggers on "supabase query", "list tables", "upload file", "create user", "run sql".
+name: supabase-daemon
+description: Fast Supabase operations via FGP daemon - 40-120x faster than MCP. Use when user needs database queries, auth operations, storage uploads, edge functions, or realtime subscriptions. Triggers on "supabase query", "list tables", "upload file", "create user", "run sql", "supabase storage", "supabase auth".
 license: MIT
+compatibility: Requires fgp CLI and Supabase credentials (SUPABASE_URL and SUPABASE_KEY env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Supabase Daemon

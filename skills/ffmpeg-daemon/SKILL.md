@@ -1,11 +1,11 @@
 ---
-name: fgp-ffmpeg
+name: ffmpeg-daemon
 description: Fast video/audio processing via FGP daemon - 5-20x faster than spawning ffmpeg per operation. Use when user needs to convert videos, extract audio, trim clips, resize, add watermarks, or transcode. Triggers on "convert video", "extract audio", "trim video", "compress video", "ffmpeg", "video editing", "transcode".
 license: MIT
+compatibility: Requires fgp CLI and FFmpeg installed (brew install ffmpeg)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP FFmpeg Daemon

@@ -1,12 +1,11 @@
 ---
-name: fgp-sendgrid
-description: Fast SendGrid email operations via FGP daemon.
+name: sendgrid-daemon
+description: Fast SendGrid email operations via FGP daemon. Use when user needs to send emails, use templates, manage contacts, or check email stats via SendGrid. Triggers on "sendgrid send", "send email sendgrid", "sendgrid template", "email stats", "add contact sendgrid".
 license: MIT
+compatibility: Requires fgp CLI and SendGrid API Key (SENDGRID_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["email", "automation"]
 ---
 
 # FGP SendGrid Daemon

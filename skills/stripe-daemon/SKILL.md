@@ -1,11 +1,11 @@
 ---
-name: fgp-stripe
-description: Fast Stripe operations via FGP daemon - 30-60x faster than MCP. Use when user needs to manage payments, customers, subscriptions, or invoices. Triggers on "list customers", "create payment", "stripe subscription", "refund", "invoice".
+name: stripe-daemon
+description: Fast Stripe operations via FGP daemon - 30-60x faster than MCP. Use when user needs to manage payments, customers, subscriptions, invoices, or refunds. Triggers on "list customers", "create payment", "stripe subscription", "refund", "invoice", "stripe balance", "payment intent".
 license: MIT
+compatibility: Requires fgp CLI and Stripe Secret Key (STRIPE_SECRET_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Stripe Daemon

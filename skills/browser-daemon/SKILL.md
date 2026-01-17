@@ -1,11 +1,11 @@
 ---
-name: fgp-browser
-description: Fast browser automation via FGP daemon - 3-12x faster than Playwright MCP. Use when user needs to navigate, screenshot, click, fill forms, or get page snapshots. Triggers on "open URL", "take screenshot", "click button", "fill form", "get page content".
+name: browser-daemon
+description: Fast browser automation via FGP daemon - 3-12x faster than Playwright MCP. Use when user needs to navigate web pages, take screenshots, click elements, fill forms, scrape content, or get ARIA accessibility snapshots. Triggers on "open URL", "take screenshot", "click button", "fill form", "get page content", "scrape website", "automate browser".
 license: MIT
+compatibility: Requires fgp CLI and Chrome/Chromium browser installed
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Browser Daemon

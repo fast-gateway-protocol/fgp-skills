@@ -1,12 +1,11 @@
 ---
-name: fgp-stability
-description: Fast Stability AI image generation via FGP daemon.
+name: stability-daemon
+description: Fast Stability AI image generation via FGP daemon. Use when user needs to generate images, transform images, inpaint, upscale, or remove backgrounds with Stable Diffusion. Triggers on "stability generate", "stable diffusion", "generate image", "upscale image", "remove background", "inpaint image", "SD3".
 license: MIT
+compatibility: Requires fgp CLI and Stability AI API Key (STABILITY_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation", "ai", "media"]
 ---
 
 # FGP Stability AI Daemon

@@ -1,12 +1,11 @@
 ---
-name: fgp-kubernetes
-description: Fast Kubernetes operations via FGP daemon - 15-40x faster than spawning kubectl per command. Direct API server access.
+name: kubernetes-daemon
+description: Fast Kubernetes operations via FGP daemon - 15-40x faster than spawning kubectl per command. Use when user needs to manage pods, deployments, services, get logs, or apply manifests. Triggers on "kubectl", "k8s pods", "get pods", "kubernetes logs", "apply manifest", "describe pod".
 license: MIT
+compatibility: Requires fgp CLI and kubeconfig (~/.kube/config or KUBECONFIG env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "cloud"]
 ---
 
 # FGP Kubernetes Daemon

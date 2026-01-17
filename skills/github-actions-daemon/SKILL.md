@@ -1,12 +1,11 @@
 ---
-name: fgp-github-actions
-description: Fast GitHub Actions operations via FGP daemon - 30-60x faster than gh CLI. Manage workflows, runs, and artifacts.
+name: github-actions-daemon
+description: Fast GitHub Actions operations via FGP daemon - 30-60x faster than gh CLI. Use when user needs to trigger workflows, check run status, download artifacts, or view logs. Triggers on "github actions", "trigger workflow", "workflow run", "check CI", "download artifact", "actions logs".
 license: MIT
+compatibility: Requires fgp CLI and GitHub token (GITHUB_TOKEN env var or gh CLI auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation"]
 ---
 
 # FGP GitHub Actions Daemon

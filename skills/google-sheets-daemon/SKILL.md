@@ -1,11 +1,11 @@
 ---
-name: fgp-google-sheets
-description: Fast Google Sheets operations via FGP daemon - 35-70x faster than MCP. Use when user needs to read spreadsheets, write data, create sheets, or manage formulas. Triggers on "read spreadsheet", "write cells", "sheets data", "google sheets", "update spreadsheet".
+name: google-sheets-daemon
+description: Fast Google Sheets operations via FGP daemon - 35-70x faster than MCP. Use when user needs to read spreadsheets, write data, create sheets, manage formulas, or export data. Triggers on "read spreadsheet", "write cells", "sheets data", "google sheets", "update spreadsheet", "append rows", "sheets formula".
 license: MIT
+compatibility: Requires fgp CLI and Google OAuth credentials (run fgp sheets auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Google Sheets Daemon

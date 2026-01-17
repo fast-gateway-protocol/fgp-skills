@@ -1,11 +1,11 @@
 ---
-name: fgp-pandoc
+name: pandoc-daemon
 description: Fast document conversion via FGP daemon - 10-30x faster than spawning pandoc per operation. Use when user needs to convert markdown, docx, pdf, html, latex, epub, or other document formats. Triggers on "convert markdown", "markdown to pdf", "docx to markdown", "pandoc", "document conversion", "export to pdf".
 license: MIT
+compatibility: Requires fgp CLI and Pandoc installed (brew install pandoc); for PDF output also requires LaTeX
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Pandoc Daemon

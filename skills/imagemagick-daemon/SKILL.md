@@ -1,11 +1,11 @@
 ---
-name: fgp-imagemagick
+name: imagemagick-daemon
 description: Fast image processing via FGP daemon - 5-25x faster than spawning convert per operation. Use when user needs to resize images, convert formats, add watermarks, crop, compress, or batch process images. Triggers on "resize image", "convert image", "compress image", "imagemagick", "image processing", "thumbnail", "crop image".
 license: MIT
+compatibility: Requires fgp CLI and ImageMagick installed (brew install imagemagick)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP ImageMagick Daemon

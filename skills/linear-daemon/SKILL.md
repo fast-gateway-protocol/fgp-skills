@@ -1,11 +1,11 @@
 ---
-name: fgp-linear
-description: Fast Linear operations via FGP daemon - 45-90x faster than MCP. Use when user needs to manage issues, check sprints, update tickets, or work with Linear projects. Triggers on "create linear issue", "check linear", "list issues", "update ticket", "linear sprint".
+name: linear-daemon
+description: Fast Linear operations via FGP daemon - 45-90x faster than MCP. Use when user needs to manage issues, check sprints/cycles, update tickets, or work with Linear projects. Triggers on "create linear issue", "check linear", "list issues", "update ticket", "linear sprint", "linear cycle", "linear project".
 license: MIT
+compatibility: Requires fgp CLI and Linear API Key (LINEAR_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Linear Daemon

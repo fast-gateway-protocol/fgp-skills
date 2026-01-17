@@ -1,11 +1,11 @@
 ---
-name: fgp-twitter
-description: Fast Twitter/X operations via FGP daemon - 35-70x faster than MCP. Use when user needs to post tweets, search, get timelines, or manage Twitter account. Triggers on "post tweet", "search twitter", "get timeline", "twitter mentions", "tweet this".
+name: twitter-daemon
+description: Fast Twitter/X operations via FGP daemon - 35-70x faster than MCP. Use when user needs to post tweets, search Twitter, get timelines, manage mentions, or engage with content. Triggers on "post tweet", "search twitter", "get timeline", "twitter mentions", "tweet this", "twitter thread", "like tweet".
 license: MIT
+compatibility: Requires fgp CLI and Twitter API credentials (OAuth or Bearer Token)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Twitter Daemon

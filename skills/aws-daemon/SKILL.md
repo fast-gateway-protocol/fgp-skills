@@ -1,12 +1,11 @@
 ---
-name: fgp-aws
-description: Fast AWS operations via FGP daemon - S3, Lambda, DynamoDB, and more. 20-50x faster than spawning AWS CLI per command.
+name: aws-daemon
+description: Fast AWS operations via FGP daemon - S3, Lambda, DynamoDB, SQS and more. 20-50x faster than spawning AWS CLI per command. Use when user needs to interact with AWS services. Triggers on "s3 upload", "lambda invoke", "dynamodb query", "aws s3", "sqs message".
 license: MIT
+compatibility: Requires fgp CLI and AWS credentials (AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY env vars or aws configure)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["cloud", "storage", "devtools"]
 ---
 
 # FGP AWS Daemon

@@ -1,12 +1,11 @@
 ---
-name: fgp-ollama
-description: Fast local Ollama model inference via FGP daemon.
+name: ollama-daemon
+description: Fast local Ollama model inference via FGP daemon. Use when user needs local LLM chat, text generation, embeddings, or model management. Triggers on "ollama chat", "local llm", "ollama generate", "ollama embed", "pull model", "run llama locally".
 license: MIT
+compatibility: Requires fgp CLI and Ollama installed and running (ollama serve)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation", "ai"]
 ---
 
 # FGP Ollama Daemon

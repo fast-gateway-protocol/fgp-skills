@@ -1,11 +1,11 @@
 ---
-name: fgp-fly
-description: Fast Fly.io operations via FGP daemon - 25-50x faster than CLI. Use when user needs to deploy, scale, check status, or manage Fly apps. Triggers on "deploy to fly", "fly status", "scale app", "fly logs", "list machines".
+name: fly-daemon
+description: Fast Fly.io operations via FGP daemon - 25-50x faster than CLI. Use when user needs to deploy apps, scale machines, check status, manage secrets, or view logs on Fly.io. Triggers on "deploy to fly", "fly status", "scale app", "fly logs", "list machines", "fly secrets", "fly deploy".
 license: MIT
+compatibility: Requires fgp CLI and Fly.io token (FLY_API_TOKEN env var or flyctl auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Fly Daemon

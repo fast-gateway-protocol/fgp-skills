@@ -1,11 +1,11 @@
 ---
-name: fgp-imessage
-description: Fast iMessage operations via FGP daemon (macOS only) - 480x faster than alternatives. Use when user needs to send/read iMessages, search conversations, or check unread messages. Triggers on "send message", "text someone", "check messages", "search iMessage".
+name: imessage-daemon
+description: Fast iMessage operations via FGP daemon (macOS only) - 480x faster than alternatives. Use when user needs to send/read iMessages, search conversations, check unread messages, or find follow-ups. Triggers on "send message", "text someone", "check messages", "search iMessage", "send text", "unread messages", "iMessage to".
 license: MIT
+compatibility: Requires macOS, fgp CLI, and Full Disk Access permission for terminal
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin"]
 ---
 
 # FGP iMessage Daemon

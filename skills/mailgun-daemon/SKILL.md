@@ -1,12 +1,11 @@
 ---
-name: fgp-mailgun
-description: Fast Mailgun email operations via FGP daemon.
+name: mailgun-daemon
+description: Fast Mailgun email operations via FGP daemon. Use when user needs to send emails, batch send, check delivery events, or validate email addresses via Mailgun. Triggers on "mailgun send", "send email mailgun", "email events", "validate email", "batch email".
 license: MIT
+compatibility: Requires fgp CLI and Mailgun credentials (MAILGUN_API_KEY and MAILGUN_DOMAIN env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["email", "automation"]
 ---
 
 # FGP Mailgun Daemon

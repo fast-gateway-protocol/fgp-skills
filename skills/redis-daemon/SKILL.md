@@ -1,11 +1,11 @@
 ---
-name: fgp-redis
+name: redis-daemon
 description: Fast Redis operations via FGP daemon - 15-50x faster than spawning redis-cli per command. Use when user needs to get/set cache values, manage keys, pub/sub, or work with Redis data structures. Triggers on "redis get", "redis set", "cache", "redis-cli", "get key", "set key".
 license: MIT
+compatibility: Requires fgp CLI and Redis connection (REDIS_URL env var or localhost:6379)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Redis Daemon

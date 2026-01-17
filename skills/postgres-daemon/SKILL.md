@@ -1,11 +1,11 @@
 ---
-name: fgp-postgres
-description: Fast PostgreSQL operations via FGP daemon - 30-80x faster than MCP. Use when user needs to run SQL queries, manage schema, or work with any Postgres database. Triggers on "run sql", "postgres query", "list tables", "database schema", "pg".
+name: postgres-daemon
+description: Fast PostgreSQL operations via FGP daemon - 30-80x faster than MCP. Use when user needs to run SQL queries, manage schema, analyze performance, or work with any Postgres database. Triggers on "run sql", "postgres query", "list tables", "database schema", "pg query", "explain query".
 license: MIT
+compatibility: Requires fgp CLI and PostgreSQL connection (DATABASE_URL or PG* env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Postgres Daemon

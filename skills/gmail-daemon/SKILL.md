@@ -1,11 +1,11 @@
 ---
-name: fgp-gmail
-description: Fast Gmail operations via FGP daemon - 69x faster than MCP. Use when user needs to check email, search messages, send email, or manage inbox. Triggers on "check my email", "send email", "search emails", "read message", "list unread".
+name: gmail-daemon
+description: Fast Gmail operations via FGP daemon - 69x faster than MCP. Use when user needs to check email, search messages, send email, read inbox, manage labels, or archive messages. Triggers on "check my email", "send email", "search emails", "read message", "list unread", "compose email", "email inbox".
 license: MIT
+compatibility: Requires fgp CLI and Google OAuth credentials (run fgp gmail auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Gmail Daemon

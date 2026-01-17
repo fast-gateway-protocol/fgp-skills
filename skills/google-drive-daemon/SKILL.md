@@ -1,11 +1,11 @@
 ---
-name: fgp-google-drive
-description: Fast Google Drive operations via FGP daemon - 40-80x faster than MCP. Use when user needs to list files, upload, download, or manage Drive. Triggers on "list drive files", "upload to drive", "download from drive", "search drive", "share file".
+name: google-drive-daemon
+description: Fast Google Drive operations via FGP daemon - 40-80x faster than MCP. Use when user needs to list files, upload files, download files, search Drive, or share documents. Triggers on "list drive files", "upload to drive", "download from drive", "search drive", "share file", "google drive", "drive folder".
 license: MIT
+compatibility: Requires fgp CLI and Google OAuth credentials (run fgp drive auth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Google Drive Daemon

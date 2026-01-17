@@ -1,11 +1,11 @@
 ---
-name: fgp-slack
-description: Fast Slack operations via FGP daemon - 50x faster than MCP. Use when user needs to send messages, check channels, search Slack, or manage workspace. Triggers on "send slack message", "check slack", "post to channel", "search slack", "list channels".
+name: slack-daemon
+description: Fast Slack operations via FGP daemon - 50x faster than MCP. Use when user needs to send messages, check channels, search Slack, manage workspace, or read mentions. Triggers on "send slack message", "check slack", "post to channel", "search slack", "list channels", "slack DM", "slack mentions".
 license: MIT
+compatibility: Requires fgp CLI and Slack Bot Token (SLACK_BOT_TOKEN env var or OAuth)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Slack Daemon

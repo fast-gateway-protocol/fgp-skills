@@ -1,12 +1,11 @@
 ---
-name: fgp-anthropic
-description: Fast Anthropic Claude API operations via FGP daemon - 15-30x faster than spawning API clients per request. Persistent connection pooling and response caching.
+name: anthropic-daemon
+description: Fast Anthropic Claude API operations via FGP daemon - 15-30x faster than spawning API clients per request. Use when user needs Claude chat completions, streaming responses, token counting, or batch requests. Triggers on "claude chat", "anthropic api", "claude completion", "claude stream".
 license: MIT
+compatibility: Requires fgp CLI and Anthropic API Key (ANTHROPIC_API_KEY env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation"]
 ---
 
 # FGP Anthropic Daemon

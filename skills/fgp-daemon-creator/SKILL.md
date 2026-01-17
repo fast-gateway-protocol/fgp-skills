@@ -1,11 +1,11 @@
 ---
 name: fgp-daemon-creator
-description: Create new FGP daemons from templates. Use when user wants to build a custom FGP daemon, create a new integration, or scaffold a daemon project. Triggers on "create FGP daemon", "new daemon", "build integration", "scaffold FGP".
+description: Create new FGP daemons from templates. Use when user wants to build a custom FGP daemon, create a new integration, scaffold a daemon project, or extend FGP. Triggers on "create FGP daemon", "new daemon", "build integration", "scaffold FGP", "new FGP skill", "make daemon".
 license: MIT
+compatibility: Requires fgp CLI, Rust toolchain (cargo), and basic Rust knowledge
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Daemon Creator

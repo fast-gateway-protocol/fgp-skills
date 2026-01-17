@@ -1,12 +1,11 @@
 ---
-name: fgp-postmark
-description: Fast Postmark transactional email operations via FGP daemon.
+name: postmark-daemon
+description: Fast Postmark transactional email operations via FGP daemon. Use when user needs to send transactional emails, use templates, batch send, or check delivery stats via Postmark. Triggers on "postmark send", "send email postmark", "postmark template", "delivery stats", "email bounce".
 license: MIT
+compatibility: Requires fgp CLI and Postmark Server Token (POSTMARK_SERVER_TOKEN env var)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["email", "automation"]
 ---
 
 # FGP Postmark Daemon

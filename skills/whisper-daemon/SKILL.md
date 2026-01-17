@@ -1,11 +1,11 @@
 ---
-name: fgp-whisper
+name: whisper-daemon
 description: Fast audio transcription via FGP daemon - 3-10x faster than spawning whisper per file. Use when user needs to transcribe audio, convert speech to text, generate subtitles, or translate audio. Triggers on "transcribe audio", "speech to text", "whisper", "generate subtitles", "transcription", "audio to text".
 license: MIT
+compatibility: Requires fgp CLI and whisper.cpp or openai-whisper installed; optional OPENAI_API_KEY for cloud API
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
 ---
 
 # FGP Whisper Daemon

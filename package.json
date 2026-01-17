@@ -1,0 +1,32 @@
+{
+  "name": "fgp-skills",
+  "version": "1.0.0",
+  "description": "FGP daemon skills for AI coding assistants - 10-100x faster than MCP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fast-gateway-protocol/fgp-skills"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "claude-code",
+    "cursor",
+    "codex",
+    "windsurf",
+    "ai",
+    "fgp",
+    "daemons",
+    "mcp",
+    "fast-gateway-protocol",
+    "llm-tools"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Fast Gateway Protocol",
+    "url": "https://fgp.dev"
+  },
+  "homepage": "https://fgp.dev",
+  "bugs": {
+    "url": "https://github.com/fast-gateway-protocol/fgp-skills/issues"
+  }
+}

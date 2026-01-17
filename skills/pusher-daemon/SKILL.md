@@ -1,12 +1,11 @@
 ---
-name: fgp-pusher
-description: Fast Pusher real-time messaging operations via FGP daemon.
+name: pusher-daemon
+description: Fast Pusher real-time messaging operations via FGP daemon. Use when user needs to trigger events, send real-time messages, manage channels, or authenticate presence channels. Triggers on "pusher trigger", "send pusher event", "real-time message", "pusher channel", "presence users".
 license: MIT
+compatibility: Requires fgp CLI and Pusher credentials (PUSHER_APP_ID, PUSHER_KEY, PUSHER_SECRET, PUSHER_CLUSTER env vars)
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["messaging", "automation"]
 ---
 
 # FGP Pusher Daemon

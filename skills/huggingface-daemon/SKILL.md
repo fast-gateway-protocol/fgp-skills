@@ -1,12 +1,11 @@
 ---
-name: fgp-huggingface
-description: Fast Hugging Face Inference API via FGP daemon.
+name: huggingface-daemon
+description: Fast Hugging Face Inference API via FGP daemon. Use when user needs text generation, embeddings, classification, image captioning, or model inference. Triggers on "huggingface inference", "generate text", "get embeddings", "classify text", "hugging face", "HF model", "zero-shot".
 license: MIT
+compatibility: Requires fgp CLI and optional HF_API_TOKEN for private models
 metadata:
   author: fast-gateway-protocol
   version: "1.0.0"
-  platforms: ["darwin", "linux"]
-  categories: ["devtools", "automation", "ai"]
 ---
 
 # FGP Hugging Face Daemon
