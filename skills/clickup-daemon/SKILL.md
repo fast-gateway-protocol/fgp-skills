@@ -1,6 +1,6 @@
 ---
 name: fgp-clickup
-description: Fast ClickUp operations via FGP daemon - 30-50x faster than spawning API clients per request.
+description: Fast ClickUp task and time tracking via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,16 +15,12 @@ Fast ClickUp task management using a persistent daemon architecture. Eliminates 
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Get task | 12ms | 420ms | 35x |
-| Create task | 18ms | 580ms | 32x |
-| Update task | 14ms | 490ms | 35x |
-| List tasks | 25ms | 850ms | 34x |
-| Add comment | 16ms | 520ms | 33x |
-| Time tracking | 20ms | 680ms | 34x |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** The FGP daemon maintains a persistent HTTP/2 connection to ClickUp's API with connection pooling. Direct API clients spawn a new process, import SDK, and authenticate on every call.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

@@ -1,6 +1,6 @@
 ---
 name: fgp-trello
-description: Fast Trello operations via FGP daemon - 25-40x faster than spawning API clients per request.
+description: Fast Trello board and card operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,16 +15,12 @@ Fast Trello board and card operations using a persistent daemon architecture. El
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Get card | 10ms | 320ms | 32x |
-| Create card | 15ms | 450ms | 30x |
-| Move card | 12ms | 380ms | 32x |
-| List board cards | 22ms | 650ms | 30x |
-| Add comment | 14ms | 420ms | 30x |
-| Search | 30ms | 900ms | 30x |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** The FGP daemon maintains a persistent connection pool to Trello's API. Direct API clients spawn a new process, load HTTP libraries, and authenticate on every call.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

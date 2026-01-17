@@ -1,6 +1,6 @@
 ---
 name: fgp-pusher
-description: Fast Pusher real-time messaging operations via FGP daemon - 65x faster than spawning API clients per request.
+description: Fast Pusher real-time messaging operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -13,15 +13,12 @@ metadata:
 
 ## Why FGP?
 
-Pusher enables real-time features through WebSockets and channels. The FGP Pusher daemon maintains persistent authenticated connections, making it ideal for high-frequency event publishing where latency matters.
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Trigger event | 3ms | 180ms | 60x |
-| Trigger batch | 8ms | 420ms | 53x |
-| Get channel info | 4ms | 250ms | 63x |
-| Get presence users | 5ms | 280ms | 56x |
-| Authenticate user | 2ms | 150ms | 75x |
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

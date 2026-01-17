@@ -1,6 +1,6 @@
 ---
 name: fgp-sendgrid
-description: Fast SendGrid email operations via FGP daemon - 45x faster than spawning API clients per request.
+description: Fast SendGrid email operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -13,15 +13,12 @@ metadata:
 
 ## Why FGP?
 
-Traditional SendGrid integrations spawn a new HTTP client for each request, incurring connection setup overhead. The FGP SendGrid daemon maintains a persistent connection pool and stays warm across sessions.
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Send email | 8ms | 350ms | 44x |
-| Send template email | 10ms | 380ms | 38x |
-| List contacts | 12ms | 420ms | 35x |
-| Get email stats | 6ms | 280ms | 47x |
-| Validate email | 5ms | 250ms | 50x |
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

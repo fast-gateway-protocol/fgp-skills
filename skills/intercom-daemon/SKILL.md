@@ -1,6 +1,6 @@
 ---
 name: fgp-intercom
-description: Fast Intercom customer messaging operations via FGP daemon - 42x faster than spawning API clients per request.
+description: Fast Intercom customer messaging operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -13,15 +13,12 @@ metadata:
 
 ## Why FGP?
 
-Intercom's API enables customer messaging, support, and engagement. The FGP Intercom daemon maintains authenticated sessions and connection pools, ideal for CRM automation and customer support workflows.
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Create contact | 9ms | 380ms | 42x |
-| Send message | 11ms | 450ms | 41x |
-| List conversations | 8ms | 340ms | 43x |
-| Search contacts | 10ms | 420ms | 42x |
-| Create note | 7ms | 290ms | 41x |
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

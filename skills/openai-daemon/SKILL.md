@@ -1,6 +1,6 @@
 ---
 name: fgp-openai
-description: Fast OpenAI API operations via FGP daemon - 25x faster than spawning API clients per request.
+description: Fast OpenAI API operations (GPT, DALL-E, Whisper) via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -11,17 +11,16 @@ metadata:
 
 # FGP OpenAI Daemon
 
-Ultra-fast OpenAI API access with connection pooling. **20-40x faster** connection overhead (API latency depends on model).
+Fast OpenAI API access with connection pooling for GPT, DALL-E, Whisper, and more.
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API | Speedup |
-|-----------|------------|------------|---------|
-| Connection overhead | 2-5ms | ~100ms | **20-50x** |
-| Embeddings (batch) | 15-30ms + API | ~150ms + API | **5-10x** |
-| Image generation | 10-20ms + API | ~120ms + API | **6-12x** |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-Persistent connection pooling eliminates per-request overhead.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

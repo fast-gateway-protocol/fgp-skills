@@ -1,6 +1,6 @@
 ---
 name: fgp-stability
-description: Fast Stability AI image generation via FGP daemon - 25x faster than spawning API clients per request.
+description: Fast Stability AI image generation via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,15 +15,12 @@ Fast, persistent gateway to Stability AI's image generation APIs. Generate, edit
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Image generation (first call) | 50ms + gen | 1200ms + gen | **24x** |
-| Image generation (warm) | 10ms + gen | 250ms + gen | **25x** |
-| Image-to-image | 12ms + gen | 280ms + gen | **23x** |
-| Upscaling | 8ms + upscale | 200ms + upscale | **25x** |
-| Inpainting | 15ms + gen | 320ms + gen | **21x** |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** Direct API clients initialize SDKs, load image processing libraries, and establish connections. FGP maintains warm connections and pre-loaded utilities.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

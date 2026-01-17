@@ -1,6 +1,6 @@
 ---
 name: fgp-monday
-description: Fast Monday.com operations via FGP daemon - 25-45x faster than spawning API clients per request.
+description: Fast Monday.com board and item management via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,16 +15,12 @@ Fast Monday.com board operations using a persistent daemon architecture. Elimina
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Get item | 15ms | 480ms | 32x |
-| Create item | 20ms | 650ms | 33x |
-| Update column | 12ms | 420ms | 35x |
-| Query board | 25ms | 850ms | 34x |
-| Add update | 18ms | 580ms | 32x |
-| Move item | 14ms | 490ms | 35x |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** The FGP daemon maintains a persistent GraphQL connection to Monday's API with query caching. Direct API clients spawn a new process, import SDK, and authenticate on every call.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

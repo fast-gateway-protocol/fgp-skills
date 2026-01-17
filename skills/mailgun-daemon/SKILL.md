@@ -1,6 +1,6 @@
 ---
 name: fgp-mailgun
-description: Fast Mailgun email operations via FGP daemon - 52x faster than spawning API clients per request.
+description: Fast Mailgun email operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -13,15 +13,12 @@ metadata:
 
 ## Why FGP?
 
-Mailgun's REST API requires authentication and connection setup for each request. The FGP Mailgun daemon maintains authenticated sessions and connection pools, eliminating per-request overhead.
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Send email | 7ms | 380ms | 54x |
-| Send batch | 15ms | 650ms | 43x |
-| Get events | 9ms | 420ms | 47x |
-| Validate email | 4ms | 220ms | 55x |
-| List routes | 8ms | 350ms | 44x |
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

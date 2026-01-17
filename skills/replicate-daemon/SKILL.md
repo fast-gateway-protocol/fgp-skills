@@ -1,6 +1,6 @@
 ---
 name: fgp-replicate
-description: Fast Replicate model inference via FGP daemon - 30x faster than spawning API clients per request.
+description: Fast Replicate model inference via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,15 +15,12 @@ Fast, persistent gateway to Replicate's model inference API. Run thousands of op
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Model prediction (first call) | 35ms + inference | 950ms + inference | **27x** |
-| Model prediction (warm) | 6ms + inference | 180ms + inference | **30x** |
-| Get prediction status | 4ms | 120ms | **30x** |
-| List models | 8ms | 150ms | **19x** |
-| Cancel prediction | 5ms | 110ms | **22x** |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** Direct API clients spawn a new process, initialize HTTP clients, and establish connections. FGP maintains persistent connections and caches model metadata.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

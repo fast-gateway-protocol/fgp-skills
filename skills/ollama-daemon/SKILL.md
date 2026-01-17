@@ -1,6 +1,6 @@
 ---
 name: fgp-ollama
-description: Fast local Ollama model inference via FGP daemon - 40x faster than spawning CLI clients per request.
+description: Fast local Ollama model inference via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,15 +15,12 @@ Fast, persistent gateway to local Ollama models. Run LLMs locally with minimal l
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct CLI/API | Speedup |
-|-----------|------------|----------------|---------|
-| Chat (first call, model loaded) | 8ms + gen | 320ms + gen | **40x** |
-| Chat (warm) | 3ms + gen | 120ms + gen | **40x** |
-| Embeddings | 2ms + gen | 80ms + gen | **40x** |
-| Model list | 1ms | 45ms | **45x** |
-| Pull model | 5ms + download | 150ms + download | **30x** |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** Each `ollama run` or API call spawns processes and re-establishes connections. FGP maintains a persistent connection to the Ollama server with pre-warmed HTTP clients.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

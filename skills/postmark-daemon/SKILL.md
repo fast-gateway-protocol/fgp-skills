@@ -1,6 +1,6 @@
 ---
 name: fgp-postmark
-description: Fast Postmark transactional email operations via FGP daemon - 48x faster than spawning API clients per request.
+description: Fast Postmark transactional email operations via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -13,15 +13,12 @@ metadata:
 
 ## Why FGP?
 
-Postmark specializes in transactional email with high deliverability. The FGP Postmark daemon maintains persistent connections to Postmark's API, eliminating cold-start latency for time-sensitive transactional messages.
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Send email | 6ms | 290ms | 48x |
-| Send template | 8ms | 320ms | 40x |
-| Send batch | 12ms | 580ms | 48x |
-| Get delivery stats | 5ms | 240ms | 48x |
-| Get bounces | 7ms | 310ms | 44x |
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

@@ -1,6 +1,6 @@
 ---
 name: fgp-huggingface
-description: Fast Hugging Face Inference API via FGP daemon - 20x faster than spawning API clients per request.
+description: Fast Hugging Face Inference API via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,15 +15,12 @@ Fast, persistent gateway to Hugging Face's Inference API. Access 400,000+ models
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Text generation (first call) | 40ms + inference | 780ms + inference | **20x** |
-| Text generation (warm) | 8ms + inference | 160ms + inference | **20x** |
-| Embeddings | 6ms + inference | 140ms + inference | **23x** |
-| Image classification | 10ms + inference | 200ms + inference | **20x** |
-| Zero-shot classification | 8ms + inference | 180ms + inference | **23x** |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** Direct API clients initialize the huggingface_hub library, load tokenizers, and establish HTTPS connections per request. FGP keeps everything warm.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 

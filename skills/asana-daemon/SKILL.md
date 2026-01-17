@@ -1,6 +1,6 @@
 ---
 name: fgp-asana
-description: Fast Asana operations via FGP daemon - 25-45x faster than spawning API clients per request.
+description: Fast Asana task and project management via FGP daemon.
 license: MIT
 metadata:
   author: fast-gateway-protocol
@@ -15,16 +15,12 @@ Fast Asana task and project management using a persistent daemon architecture. E
 
 ## Why FGP?
 
-| Operation | FGP Daemon | Direct API Client | Speedup |
-|-----------|------------|-------------------|---------|
-| Get task | 12ms | 380ms | 32x |
-| Create task | 18ms | 520ms | 29x |
-| List project tasks | 25ms | 750ms | 30x |
-| Update task | 15ms | 450ms | 30x |
-| Add comment | 20ms | 580ms | 29x |
-| Search tasks | 35ms | 1100ms | 31x |
+FGP daemons maintain persistent connections and avoid cold-start overhead. Instead of spawning a new API client for each request, the daemon stays warm and ready.
 
-**Why the speedup?** The FGP daemon maintains a persistent HTTP/2 connection to Asana's API with pre-authenticated sessions. Direct API clients spawn a new process, import SDK, establish TLS, and authenticate on every call.
+Benefits:
+- No cold-start latency
+- Connection pooling
+- Persistent authentication
 
 ## Installation
 
