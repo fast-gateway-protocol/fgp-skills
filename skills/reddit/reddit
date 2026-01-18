@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""
+Reddit CLI - Token-efficient Reddit access via public JSON API.
+
+Usage:
+    reddit posts <subreddit> [--limit N] [--sort hot|new|top]
+    reddit post <url>
+    reddit search <query> [--subreddit NAME] [--limit N]
+    reddit user <username> [--limit N]
+    reddit comments <url> [--limit N]
+
+No authentication required. Rate limit: ~10 req/min.
+"""
+
+import sys
+import json
+import argparse
+import re
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote
+from urllib.error import HTTPError, URLError
+
+USER_AGENT = "FGP-Reddit-CLI/1.0 (github.com/fast-gateway-protocol)"
+
+
+def fetch_json(url: str, params: dict = None) -> dict:
+    """Fetch JSON from Reddit."""
+    if params:
+        url = f"{url}?{urlencode(params)}"
+
+    req = Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read().decode())
+    except HTTPError as e:
+        if e.code == 429:
+            print("Error: Rate limited. Wait 60 seconds.", file=sys.stderr)
+        elif e.code == 404:
+            print("Error: Not found.", file=sys.stderr)
+        else:
+            print(f"Error: HTTP {e.code}", file=sys.stderr)
+        sys.exit(1)
+    except URLError as e:
+        print(f"Error: {e.reason}", file=sys.stderr)
+        sys.exit(1)
+
+
+def normalize_url(url: str) -> str:
+    """Ensure URL ends with .json"""
+    url = url.rstrip("/")
+    if not url.endswith(".json"):
+        url += ".json"
+    return url
+
+
+def extract_posts(data: dict, include_text: bool = False) -> list:
+    """Extract minimal post data."""
+    posts = []
+    for child in data.get("data", {}).get("children", []):
+        p = child.get("data", {})
+        post = {
+            "title": p.get("title", ""),
+            "author": p.get("author", ""),
+            "subreddit": p.get("subreddit", ""),
+            "score": p.get("score", 0),
+            "comments": p.get("num_comments", 0),
+            "url": p.get("url_overridden_by_dest") or p.get("url", ""),
+            "permalink": f"https://reddit.com{p.get('permalink', '')}",
+        }
+        if include_text and p.get("selftext"):
+            post["text"] = p["selftext"][:1000]
+        if p.get("is_self"):
+            post["type"] = "self"
+        posts.append(post)
+    return posts
+
+
+def extract_comments(data: list, limit: int = 30) -> dict:
+    """Extract post + flattened comments."""
+    if not data or len(data) < 2:
+        return {"error": "Invalid post data"}
+
+    # Post
+    post_data = data[0]["data"]["children"][0]["data"]
+    result = {
+        "post": {
+            "title": post_data.get("title", ""),
+            "author": post_data.get("author", ""),
+            "subreddit": post_data.get("subreddit", ""),
+            "score": post_data.get("score", 0),
+            "text": (post_data.get("selftext") or "")[:2000],
+            "url": post_data.get("url_overridden_by_dest") or post_data.get("url", ""),
+        },
+        "comments": [],
+    }
+
+    # Flatten comment tree
+    def walk(children, depth=0):
+        for c in children:
+            if c.get("kind") != "t1" or len(result["comments"]) >= limit:
+                continue
+            d = c.get("data", {})
+            result["comments"].append({
+                "author": d.get("author", ""),
+                "score": d.get("score", 0),
+                "body": (d.get("body") or "")[:800],
+                "depth": depth,
+            })
+            replies = d.get("replies")
+            if isinstance(replies, dict):
+                walk(replies.get("data", {}).get("children", []), depth + 1)
+
+    walk(data[1].get("data", {}).get("children", []))
+    return result
+
+
+def cmd_posts(args):
+    """List posts from a subreddit."""
+    sub = args.subreddit.lstrip("r/").lstrip("/")
+    url = f"https://www.reddit.com/r/{quote(sub)}/{args.sort}.json"
+    data = fetch_json(url, {"limit": args.limit})
+    posts = extract_posts(data)
+    print(json.dumps(posts, indent=2))
+
+
+def cmd_post(args):
+    """Get a single post with comments."""
+    url = normalize_url(args.url)
+    if not url.startswith("http"):
+        url = f"https://www.reddit.com{url}"
+    data = fetch_json(url, {"limit": args.limit})
+    result = extract_comments(data, limit=args.limit)
+    print(json.dumps(result, indent=2))
+
+
+def cmd_search(args):
+    """Search Reddit."""
+    params = {"q": args.query, "limit": args.limit, "sort": "relevance"}
+    if args.subreddit:
+        sub = args.subreddit.lstrip("r/").lstrip("/")
+        url = f"https://www.reddit.com/r/{quote(sub)}/search.json"
+        params["restrict_sr"] = "on"
+    else:
+        url = "https://www.reddit.com/search.json"
+
+    data = fetch_json(url, params)
+    posts = extract_posts(data, include_text=True)
+    print(json.dumps(posts, indent=2))
+
+
+def cmd_user(args):
+    """Get user's recent posts/comments."""
+    url = f"https://www.reddit.com/user/{quote(args.username)}/overview.json"
+    data = fetch_json(url, {"limit": args.limit})
+
+    items = []
+    for child in data.get("data", {}).get("children", []):
+        d = child.get("data", {})
+        item = {
+            "type": "comment" if child.get("kind") == "t1" else "post",
+            "subreddit": d.get("subreddit", ""),
+            "score": d.get("score", 0),
+        }
+        if item["type"] == "comment":
+            item["body"] = (d.get("body") or "")[:500]
+            item["link_title"] = d.get("link_title", "")
+        else:
+            item["title"] = d.get("title", "")
+        items.append(item)
+
+    print(json.dumps(items, indent=2))
+
+
+def cmd_comments(args):
+    """Get comments from a post URL."""
+    return cmd_post(args)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Token-efficient Reddit access via public JSON API",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # posts
+    p_posts = subparsers.add_parser("posts", help="List subreddit posts")
+    p_posts.add_argument("subreddit", help="Subreddit name (e.g., programming)")
+    p_posts.add_argument("--limit", "-n", type=int, default=10, help="Number of posts")
+    p_posts.add_argument("--sort", "-s", default="hot", choices=["hot", "new", "top", "rising"])
+    p_posts.set_defaults(func=cmd_posts)
+
+    # post (single post with comments)
+    p_post = subparsers.add_parser("post", help="Get post with comments")
+    p_post.add_argument("url", help="Reddit post URL or path")
+    p_post.add_argument("--limit", "-n", type=int, default=30, help="Max comments")
+    p_post.set_defaults(func=cmd_post)
+
+    # search
+    p_search = subparsers.add_parser("search", help="Search Reddit")
+    p_search.add_argument("query", help="Search query")
+    p_search.add_argument("--subreddit", "-r", help="Limit to subreddit")
+    p_search.add_argument("--limit", "-n", type=int, default=10, help="Number of results")
+    p_search.set_defaults(func=cmd_search)
+
+    # user
+    p_user = subparsers.add_parser("user", help="Get user activity")
+    p_user.add_argument("username", help="Reddit username")
+    p_user.add_argument("--limit", "-n", type=int, default=15, help="Number of items")
+    p_user.set_defaults(func=cmd_user)
+
+    # comments (alias for post)
+    p_comments = subparsers.add_parser("comments", help="Get post comments (alias for post)")
+    p_comments.add_argument("url", help="Reddit post URL")
+    p_comments.add_argument("--limit", "-n", type=int, default=30, help="Max comments")
+    p_comments.set_defaults(func=cmd_comments)
+
+    args = parser.parse_args()
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()
